@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block title %} Ingrediente {% endblock %}
+{% block content %}
+    <div>
+        <h1>Ingresar Ingrediente</h1>
+        <form action = "{{ request.path }}" method = "post" class= "container">
+
+            {% for i in cantidadIngredientes %}
+            <label for = "nombreIngrediente{{i}}">Nombre</label><br>
+            <input type = "text" name = "nombreIngrediente{{i}}" placeholder = "Nombre" /><br> 
+            
+            <label for = "cantidad">Cantidad</label><br>
+            <input type = "number" name = "cantidad" placeholder = "cantidad" /><br> 
+
+            <label for = "unidad">Unidad</label><br>
+            <input type = "text" name = "unidad" placeholder = "unidad" />	 
+            {% endfor %}
+
+            <input id="userId" name="receta_id" type="hidden" value="{{ recetaActual }}"> 
+            <br>
+            <input type = "submit" value = "Guardar" />
+        </form>
+    </div>
+{% endblock %}
